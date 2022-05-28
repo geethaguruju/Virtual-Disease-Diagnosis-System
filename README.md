@@ -1,4 +1,4 @@
-# Multiple Disease Predictor
+# Virtual Disease Diagnosis System
 
 ## About
 
