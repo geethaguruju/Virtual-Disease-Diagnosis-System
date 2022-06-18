@@ -1,12 +1,8 @@
-# ML-MT-WebApp
+# VDDS
 
-## On request from many of you I have created a telegram chennal where your guys can post your questions and then we can have discussions there about improving this project bit further and further help you guys can get.
-### Channel link : https://t.me/mymlmt
 
-❓ ***Let me know on telegram if you guys want this project to be deployed with Docker and Kubernetes***
 
-<img src="https://cdn.activestate.com/wp-content/uploads/2018/10/machine-learning-healthcare-blog-hero-1200x799.jpg" width="1100" height="300" />
-<p> This is one of major project of my undergraduate degree program.</p>
+<p> This is one of minor project of my undergraduate degree program.</p>
 <p>Here, I have developed a disease predicting web app which using the concept of machine learning makes predictions about various diseases like Malaria, Pneumonia, Diabetes etc.</p>
 
 <hr>
@@ -17,9 +13,6 @@
 <li><p><b>Heart model = model2</b></p></li>
 <li><p><b>Liver model = model4</b></p></li>
 <li><p><b>Kidney model = model3</b></p></li>
-
-<li><p><b>Malaria model = model111.h5</b></p></li>
-<li><p><b>Pneumonia model = my_model.h5</b></p></li>
 </ul>
 <hr>
 
