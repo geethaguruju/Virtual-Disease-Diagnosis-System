@@ -1,73 +1,71 @@
-# Virtual Disease Diagnosis System
+# ML-MT-WebApp
 
-## About
+## On request from many of you I have created a telegram chennal where your guys can post your questions and then we can have discussions there about improving this project bit further and further help you guys can get.
+### Channel link : https://t.me/mymlmt
 
-This webapp was developed using Flask Web Framework and was deployed on Heroku server. The models used to predict the diseases were trained on large Datasets. All the links for datasets and the python notebooks used for model creation are mentioned below in this readme. The webapp can predict following Diseases:
+❓ ***Let me know on telegram if you guys want this project to be deployed with Docker and Kubernetes***
 
-- Diabetes
-- Breast Cancer
-- Heart Disease
-- Kidney Disease
-- Liver Disease
-- Malaria
-- Pneumonia
+<img src="https://cdn.activestate.com/wp-content/uploads/2018/10/machine-learning-healthcare-blog-hero-1200x799.jpg" width="1100" height="300" />
+<p> This is one of major project of my undergraduate degree program.</p>
+<p>Here, I have developed a disease predicting web app which using the concept of machine learning makes predictions about various diseases like Malaria, Pneumonia, Diabetes etc.</p>
 
-## Models with their Accuracy of Prediction
+<hr>
+<h3> Down below are the names of the various model files used:</h3>
+<ul>
+<li><p><b>Cancer model = model</b></p></li>
+<li><p><b>Diabetes model = model1</b></p></li>
+<li><p><b>Heart model = model2</b></p></li>
+<li><p><b>Liver model = model4</b></p></li>
+<li><p><b>Kidney model = model3</b></p></li>
 
-| Disease        | Type of Model            | Accuracy |
-| -------------- | ------------------------ | -------- |
-| Diabetes       | Machine Learning Model   | 98.25%   |
-| Breast Cancer  | Machine Learning Model   | 98.25%   |
-| Heart Disease  | Machine Learning Model   | 85.25%   |
-| Kidney Disease | Machine Learning Model   | 99%      |
-| Liver Disease  | Machine Learning Model   | 78%      |
-| Malaria        | Deep Learning Model(CNN) | 96%      |
-| Pneumonia      | Deep Learning Model(CNN) | 95%      |
+<li><p><b>Malaria model = model111.h5</b></p></li>
+<li><p><b>Pneumonia model = my_model.h5</b></p></li>
+</ul>
+<hr>
 
-## NOTE
+<h3> Kernals used for training deep learning model </h3>
+<ul>
+<li><p><b>Kernal for Malaria model :</b>https://www.kaggle.com/shobhit18th/malaria-cell</p></li>
 
-==> You can access the website live at: https://kvg-disease-predictor.herokuapp.com <br>
-==> Python version 3.6.8 was used for the whole project.<br>
-==> You can find all the models in [models](https://github.com/venugopalkadamba/Multi_Disease_Predictor/tree/master/models) folder.
+<li><p><b>Kernal for Pneumonia model :</b>https://www.kaggle.com/shobhit18th/keras-nn-x-ray-predict-pneumonia-86-54</p></li>
+<hr>
+</ul>
 
-## Steps to run this application in your system
+<h3> Details of various datasets used for model development : </h3>
+<ul>
+<li><p><b>Cancer</b> : cancer.csv [In the repository]</p></li>
+<li><p><b>Diabetes</b> : diabetes.csv [In the repository]</p></li>
+<li><p><b>Heart</b> : heart.csv [In the repository]</p></li>
+<li><p><b>Liver</b> : https://www.kaggle.com/uciml/indian-liver-patient-records </p></li>
+<li><p><b>Kidney</b> : https://www.kaggle.com/mansoordaku/ckdisease </p></li>
 
-1. Clone or download the repo.
-2. Open command prompt in the downloaded folder.
-3. Create a virtual environment
+<li><p><b>Malaria : </b> https://www.kaggle.com/iarunava/cell-images-for-detecting-malaria </p></li>
+<li><p><b>Pneumonia: </b> https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia </p></li>
+</ul>
 
-```
-mkvirtualenv environment_name
-```
+<hr>
 
-4. Install all the dependencies:
+<h3> Tools used for project development: </h3>
+<ul>
+<li><p><b>Python ( 3.7 version)</b></p></li>
+<li><p><b>Flask</b></p></li>
+<li><p><b>OpenCV</b></p></li>
+<li><p><b>Pandas</b></p></li>
+<li><p><b>Numpy</b></p></li>
+<li><p><b>HTML</b></p></li>
+<li><p><b>CSS</b></p></li>
+</ul>
 
-```
-pip install -r requirements.txt
-```
-
-5. Run the application
-
-```
-python app.py
-```
-
-## Dataset Links
-
-All the datasets were used from kaggle.
-
-- [Diabetes Dataset](https://www.kaggle.com/uciml/pima-indians-diabetes-database)
-- [Breast Cancer Dataset](https://www.kaggle.com/uciml/breast-cancer-wisconsin-data)
-- [Heart Disease Dataset](https://www.kaggle.com/ronitf/heart-disease-uci)
-- [Kidney Disease Dataset](https://www.kaggle.com/mansoordaku/ckdisease)
-- [Liver Disease Dataset](https://www.kaggle.com/uciml/indian-liver-patient-records)
-- [Malaria Dataset](https://www.kaggle.com/iarunava/cell-images-for-detecting-malaria)
-- [Pneumonia Dataset](https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia)
-
-## Links for Python Notebooks used for model creation
-
-- [Diabetes Notebook](https://github.com/venugopalkadamba/Multi_Disease_Predictor/blob/master/Python%20Notebooks/Diabetes_Prediction.ipynb)
-- [Breast Cancer Notebook](https://github.com/venugopalkadamba/Multi_Disease_Predictor/blob/master/Python%20Notebooks/Cancer_Prediction.ipynb)
-- [Heart Disease Notebook](https://github.com/venugopalkadamba/Multi_Disease_Predictor/blob/master/Python%20Notebooks/Heart_Disease_Prediction.ipynb)
-- [Kidney Disease Notebook](https://github.com/venugopalkadamba/Multi_Disease_Predictor/blob/master/Python%20Notebooks/Kidney_Disease_Prediction.ipynb)
-- [Liver Disease Notebook](https://github.com/venugopalkadamba/Multi_Disease_Predictor/blob/master/Python%20Notebooks/Liver_Disease_Prediction.ipynb)
+<hr>
+ <h3> For using the project clone the repository and type the following commands in the termial: </h3>
+ <ul>
+  <li> $ set FLASK_APP= app.py</li>
+  <li> $ flask run</li>
+  </ul>
+  
+  <hr>
+  
+  <p> The whole project is deployed on Heroku Cloud.
+  
+ <p> Here is the link where you can access the project live : https://myml-mtapp.herokuapp.com/ <p>
+  <p> Thank you!</p>

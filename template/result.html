@@ -1,0 +1,62 @@
+
+   
+{% extends 'resbase.html' %}
+{% block content %}
+ <script>
+
+$(document).ready( function(){
+
+$("#suggest").click(function () {
+  event.preventDefault();
+  
+  $("#resultdiv").show("slow");
+  $('html,body').animate({
+    scrollTop: $("#resultdiv").offset().top},
+    'slow');
+
+  });
+
+});
+
+
+ </script>
+    
+    <div class="row"  style="margin-bottom: 50px; margin-top: 20px;">
+      <div class="col-md-3"></div>
+        <div class="col-md-6">
+          {% if pred == 1 %}
+          <div class="card card-body alert alert-danger"><center>Sorry! You may be suffering with {{ dis }}. Please consult the Doctor immediately.</center></div>
+           {% else %}
+          <div class="card card-body alert alert-success"><center>Great! You are HEALTHY.</center></div>
+          {% endif %}
+
+            <p>Want to know more about the {{ dis }} and its symptoms ?</p>
+            <div class="row">
+                <div class="col-md-4"><a href="/about" class="btn btn-block btn-primary">Know more</a></div>
+                <div class="col-md-4"><button class="btn btn-success dropdown-toggle" id="suggest">View Suggestions</button></div>
+                <div class="col-md-4"><a href="{{ url_for('home') }}" class="btn btn-block btn-danger">Back to Home</a></div>
+                <div class="col-md-4"></div>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+      </div>  
+        <div id="resultdiv" style="display: none;" >
+          <div class="text-left card row alert-success card-body " style="margin-left: 250px;margin-right: 250px;">
+            <div class="col-md-3"></div>
+            <h5>Suggestions:</h5>
+            <br>
+            {% for i in suggest %}
+            
+            <div  id="suggest1" class="col-md-6">
+  
+              <h6> {{i}}. </h6> 
+
+            </div>           
+            {% endfor %}
+                <div class="col-md-3"></div>
+          </div>
+        </div>
+   
+
+    
+{% endblock %}
