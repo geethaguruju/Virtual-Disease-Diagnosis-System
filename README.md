@@ -27,9 +27,15 @@
 <ul>
 <li><p><b>Kernal for Malaria model :</b>https://www.kaggle.com/shobhit18th/malaria-cell</p></li>
 
+<<<<<<< HEAD
 <li><p><b>Kernal for Pneumonia model :</b>https://www.kaggle.com/shobhit18th/keras-nn-x-ray-predict-pneumonia-86-54</p></li>
 <hr>
 </ul>
+=======
+==> You can access the website live at:  <br>
+==> Python version 3.6.8 was used for the whole project.<br>
+==> You can find all the models in [models](https://github.com/venugopalkadamba/Multi_Disease_Predictor/tree/master/models) folder.
+>>>>>>> 3c5c407adde44d67346ba615aa2eb6f5255cbcc5
 
 <h3> Details of various datasets used for model development : </h3>
 <ul>
