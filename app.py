@@ -99,7 +99,10 @@ def diabetes(symptomlist):
         suggest2="2. Your BP is in Hypertension Stage 1, Please consult the doctor immediately. Doctors are likely to prescribe lifestyle changes and may consider adding blood pressure medication based on your risk. Please reduce sodium in your diet, Exercise regularly, Cut back on caffeine, quit smoking and Eat a healthy diet. "
     else:
         suggest2="2. Your BP is in Hypertension Stage 2, Please consult the doctor immediately. At this stage of high blood pressure, doctors are likely to prescribe a combination of blood pressure medications and lifestyle changes. Please reduce sodium in your diet, Exercise regularly, Cut back on caffeine, quit smoking and Eat a healthy diet. "
-    suggest3="Eat healthy vegetables"
+    if float(symptomlist[4])>2 and float(symptomlist[4])<=10:
+        suggest3="You have an optimum insulin level, keep maintaining your intake of fresh fruits and vegetables, whole grains and lean proteins."
+    else: 
+        suggest3="You have high insulin level"
     suggest4="you have high bp"
     return suggest1,suggest2,suggest3,suggest4
 
