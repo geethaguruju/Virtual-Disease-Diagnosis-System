@@ -85,24 +85,24 @@ def general():
 
 def diabetes(symptomlist):
     print(symptomlist)
-    if int(symptomlist[1])<= 100:
-        suggest1="1. You have an ideal blood sugar level, Please keep maintaining a limited sugar intake to stay healthy."
+    if int(symptomlist[1])<= 100: # glucose
+        suggest1="1. You have an ideal blood sugar level, please keep maintaining a limited sugar intake to stay healthy."
     else:
-        suggest1="1. You have high blood sugar level, Please reduce you sugar intake immediately!!"
-    if int(symptomlist[2])<90:
-        suggest2="2. You have a low Blood Pressure, Please drink plenty of water and limit alcohol intake. Also, add some salt to your diet. "
+        suggest1="1. You have high blood sugar level, please reduce you sugar intake immediately!!"
+    if int(symptomlist[2])<90: # blood pressure
+        suggest2="2. You have low Blood Pressure, please drink plenty of water and limit alcohol intake. Also, add some salt to your diet. "
     elif int(symptomlist[2])>=90 and  int(symptomlist[2])<=120: 
-        suggest2="2. Your BP is within the normal range, Please maintain a balanced diet and keep exercising to stay fit."
+        suggest2="2. Your BP is in the normal range, please maintain a balanced diet and keep exercising to stay fit."
     elif int(symptomlist[2])>120 and  int(symptomlist[2])<=129:
-        suggest2="2. You have Elevated Blood Pressure, you are likely to develop high BP unless steps are taken to control the condition. Please reduce sodium in your diet, Exercise regularly, Cut back on caffeine, quit smoking and Eat a healthy diet. Also, lose extra pounds and watch your waistline. BP often increases as weight increases. "
+        suggest2="2. You have an elevated Blood Pressure level and are likely to develop high BP unless steps are taken to control the condition. Please reduce sodium in your diet, exercise regularly, cut back on caffeine, quit smoking and eat a healthy diet. Also, lose extra pounds and watch your waistline. BP often increases as weight increases. "
     elif int(symptomlist[2])>=130 and  int(symptomlist[2])<=139:
-        suggest2="2. Your BP is in Hypertension Stage 1, Please consult the doctor immediately. Doctors are likely to prescribe lifestyle changes and may consider adding blood pressure medication based on your risk. Please reduce sodium in your diet, Exercise regularly, Cut back on caffeine, quit smoking and Eat a healthy diet. "
-    else:
-        suggest2="2. Your BP is in Hypertension Stage 2, Please consult the doctor immediately. At this stage of high blood pressure, doctors are likely to prescribe a combination of blood pressure medications and lifestyle changes. Please reduce sodium in your diet, Exercise regularly, Cut back on caffeine, quit smoking and Eat a healthy diet. "
-    if float(symptomlist[4])>2 and float(symptomlist[4])<=10:
+        suggest2="2. Your BP is in Hypertension Stage 1, please consult the doctor immediately. Doctors are likely to prescribe lifestyle changes and may consider adding blood pressure medication based on your risk. Please reduce sodium in your diet, exercise regularly, cut back on caffeine, quit smoking and eat a healthy diet. "
+    else: 
+        suggest2="2. Your BP is in Hypertension Stage 2, please consult the doctor immediately. At this stage of high blood pressure, doctors are likely to prescribe a combination of blood pressure medications and lifestyle changes. Please reduce sodium in your diet, exercise regularly, cut back on caffeine, quit smoking and eat a healthy diet. "
+    if float(symptomlist[4])>2 and float(symptomlist[4])<=10: # insulin
         suggest3="You have an optimum insulin level, keep maintaining your intake of fresh fruits and vegetables, whole grains and lean proteins."
     else: 
-        suggest3="3. You have high insulin level, reduce intake of sugar and grains. Refined grains and fructose-sweetened drinks are the worst, he says. Better to eat fats and proteins."
+        suggest3="3. You have high insulin level, reduce intake of sugar and grains. Refined grains and fructose-sweetened drinks should be eliminated from the diet and healthy fats and proteins should be included."
     suggest4="you have high bp"
     return suggest1,suggest2,suggest3,suggest4
 
