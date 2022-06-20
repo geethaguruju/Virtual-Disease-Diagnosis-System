@@ -2,7 +2,7 @@
 
 {% extends 'main.html' %}
 {% block content %}
-
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 <script>
 
   /* When the user clicks on the button,
@@ -93,16 +93,15 @@ $("#predict").click(function () {
     'slow');
        
 
-
-
+  const s=JSON.stringify(symlist);
+  console.log(s);
+  
   $.ajax({
       url: '/generalpredict',
-      data: { "noofsym" : noofsym,
-              "symptoms" :symlist,
-      },
-      type: 'POST',
-      dataType: 'json',
-
+      type: 'POST',      
+      contentType: 'application/json',
+      data: JSON.stringify(s),
+      
       success: function (data) {
         document.getElementById('diseasefield').innerText = data["predicteddisease"];
         document.getElementById('percentage').innerText = data["confidencescore"]+"%";
@@ -117,12 +116,13 @@ $("#predict").click(function () {
  
        // document.getElementById('consultdoctor').innerText = data["consultdoctor"];
 
-      },
+      }, 
       error: function(error){
         console.log(error);
       }
     });
 
+    
   }
 
   });
@@ -193,7 +193,7 @@ $("#predict").click(function () {
         <div class="text-center">
               <div class="card" id="predicted-data">
                    
-                    <span class="diseasefield" >predicted disease is : </span><span class="diseasefield" id="diseasefield" style="color: #092700; text-shadow: 2px 2px 4px rgb(36, 255, 45);"></span> <br>
+                    <span class="diseasefield" >predicted disease is :  </span><span class="diseasefield" id="diseasefield" style="color: #092700; text-shadow: 2px 2px 4px rgb(36, 255, 45);"></span> <br>
                     <br>
                     <span class="diseasefield">confidence score of : </span>
                     <span>
@@ -205,7 +205,6 @@ $("#predict").click(function () {
 
                     </div>
               </div>
-
         <div class="text-center mt-4 mb-4"> 
               <button class="btn btn-outline-success">
                     <a id="href" href="https://www.google.com/search?q=anuj" target="_blank" rel="noopener noreferrer">Click here to know more about &nbsp 
@@ -223,9 +222,7 @@ $("#predict").click(function () {
         </div>
 
 
-<div class="mx-auto text-center " style="width:350px">
-   
-</div>
+<div class="mx-auto text-center " style="width:350px"> </div>
 
 </div>
 
