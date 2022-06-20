@@ -1,4 +1,6 @@
 #Important Modules
+import json
+from flask import jsonify
 from flask import Flask,render_template, url_for ,flash , redirect
 #from forms import RegistrationForm, LoginForm
 from sklearn.externals import joblib
@@ -12,39 +14,6 @@ from flask import send_from_directory
 
 import sys
 from typing import Any, Callable, List, Mapping, Optional, Sequence, Type, TypeVar, Union, overload
-
-from django.db.models import Manager, QuerySet
-from django.db.models.base import Model
-from django.http import HttpRequest
-from django.http.response import HttpResponse as HttpResponse
-from django.http.response import HttpResponsePermanentRedirect as HttpResponsePermanentRedirect
-from django.http.response import HttpResponseRedirect as HttpResponseRedirect
-from json import JSONEncoder
-
-class _Alias:
-    # Class for defining generic aliases for library types.
-    def __getitem__(self, typeargs: Any) -> Any: ...
-
-Dict = _Alias()
-
-def render(
-    request: HttpRequest,
-    template_name: Union[str, Sequence[str]],
-    context: Optional[Mapping[str, Any]] = ...,
-    content_type: Optional[str] = ...,
-    status: Optional[int] = ...,
-    using: Optional[str] = ...,
-) -> HttpResponse: ...
-
-class JsonResponse(HttpResponse):
-    def __init__(
-        self,
-        data: Any,
-        encoder: Type[JSONEncoder] = ...,
-        safe: bool = ...,
-        json_dumps_params: Optional[Dict[str, Any]] = ...,
-        **kwargs: Any
-    ) -> None: ...
 
 
 
@@ -203,20 +172,24 @@ def generalPredictPage():
               
         if request.method == 'POST':
             model = joblib.load('models/trained_model')
-            inputno = int(request.POST["noofsym"])
-            #inputno=5
-            test=app.logger.warning(request.values.get('noofsym'))
-            print(test)
+            """input_no=request.get_json()
+            print(input_no)
+            print(type(input_no))
+            inputno=json.loads(input_no)       """
+            input_sym=request.get_json()
+            print(input_sym)
+            print(type(input_sym))
+            psymptoms=json.loads(input_sym)
+            print(type(psymptoms))
+                 #psymptoms = ['cramps','cough','back_pain','mild_fever','congestion']
+            print(psymptoms)
+            inputno=len(psymptoms)
             print(inputno)
             if (inputno == 0 ) :
-                return JsonResponse({'predicteddisease': "none",'confidencescore': 0 })
+                 return jsonify({'predicteddisease': "none",'confidencescore': 0 })
                 #
             else :
                 
-                 #psymptoms = ['cramps','cough','back_pain','mild_fever','congestion']
-                 psymptoms = request.POST.getlist("symptoms[]")
-       
-                 print(psymptoms)
 
                  #main code start from here...
      
@@ -245,15 +218,11 @@ def generalPredictPage():
                  print(" confidence score of : = {0} ".format(confidencescore))
                  confidencescore = format(confidencescore, '.0f')
                  predicted_disease = predicted[0]
-                 return JsonResponse({'predicteddisease': predicted_disease ,'confidencescore':confidencescore})
-        #            
+                 return jsonify({'predicteddisease': predicted_disease ,'confidencescore':confidencescore})
+                   
     except:
         message = "Please enter valid Data"
         return render_template("home.html", message = message)
-
-    
-
-
 
 if __name__ == "__main__":
     app.run(debug=True)
