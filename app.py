@@ -102,7 +102,7 @@ def diabetes(symptomlist):
     if float(symptomlist[4])>2 and float(symptomlist[4])<=10:
         suggest3="You have an optimum insulin level, keep maintaining your intake of fresh fruits and vegetables, whole grains and lean proteins."
     else: 
-        suggest3="You have high insulin level"
+        suggest3="3. You have high insulin level, reduce intake of sugar and grains. Refined grains and fructose-sweetened drinks are the worst, he says. Better to eat fats and proteins."
     suggest4="you have high bp"
     return suggest1,suggest2,suggest3,suggest4
 
