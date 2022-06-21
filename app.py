@@ -100,17 +100,67 @@ def diabetes(symptomlist):
     else: 
         suggest2="2. Your BP is in Hypertension Stage 2, please consult the doctor immediately. At this stage of high blood pressure, doctors are likely to prescribe a combination of blood pressure medications and lifestyle changes. Please reduce sodium in your diet, exercise regularly, cut back on caffeine, quit smoking and eat a healthy diet. "
     if float(symptomlist[4])>2 and float(symptomlist[4])<=10: # insulin
-        suggest3="You have an optimum insulin level, keep maintaining your intake of fresh fruits and vegetables, whole grains and lean proteins."
+        suggest3="3. You have an optimum insulin level, keep maintaining your intake of fresh fruits and vegetables, whole grains and lean proteins."
     else: 
         suggest3="3. You have high insulin level, reduce intake of sugar and grains. Refined grains and fructose-sweetened drinks should be eliminated from the diet and healthy fats and proteins should be included."
-    suggest4="you have high bp"
+    if int(symptomlist[5])<18.5: # BMI
+        suggest4="4. You are in the underweight range. Try to incorporate healthy meals in your diet. "
+    elif int(symptomlist[5])>=18.5 and  int(symptomlist[5])<=24.9: 
+        suggest4="4. You are in the healthy weight range. Continue having a balanced meal along with regular exercise. "
+    elif int(symptomlist[5])>=25 and  int(symptomlist[5])<=29.9:
+        suggest4="4. You are in the overweight range. Cutting down on processed food should be given priority."
+    elif int(symptomlist[5])>=30 and  int(symptomlist[5])<=39.9:
+        suggest4="4. You are in the obese range. Reduction of body weight is the need of the hour."
+    else: 
+        suggest4="4. You fall under the category of Class III obesity and you might start experiencing obesity-related health conditions. A combination of dieting, behavior modification therapy and exercise should help."
+        
     return suggest1,suggest2,suggest3,suggest4
 
-def heart(symtomlist):
-    print(symtomlist)
-    suggest1="Eat healthy vegetables"
-    suggest2="Exercise Regularly"
-    return suggest1,suggest2
+def heart(symptomlist):
+    print(symptomlist)
+    if int(symptomlist[0])< 65: # age
+        suggest1="1. You are not necessarily at a risk of developing a heart disease provided you fulfill the other health parameters."
+    else: 
+        suggest1="1. You are much more likely to develop a heart disease but there are things you can do to delay, lower, or possibly avoid or reverse your risk."
+    
+    if int(symptomlist[2])==0: # chestpaintype
+        suggest2=""
+    elif int(symptomlist[2])==1: 
+        suggest2=""
+    elif int(symptomlist[2])==2:
+        suggest2=""
+    elif int(symptomlist[2])==3:
+        suggest2=""
+   
+    if int(symptomlist[3])<120: # resting bp
+        suggest3="3. "
+    elif int(symptomlist[3])>=120 and  int(symptomlist[3])<=129: 
+        suggest3=""
+    elif int(symptomlist[3])>=130 and  int(symptomlist[3])<=139:
+        suggest3=""
+    elif int(symptomlist[3])>=140 and  int(symptomlist[3])<=180:
+        suggest3=""
+    else: 
+        suggest3=""
+    
+    if int(symptomlist[0])>=20: #cholestoral
+    
+        if int(symptomlist[4])>=125 and int(symptomlist[4])<=200:
+            suggest4="4. Healthy Cholestoral Level."
+        else:
+            suggest4="4. Unhealthy Cholestoral Level."
+
+     
+    else:
+    
+        if int(symptomlist[4])<=170:
+            suggest4="Healthy Cholestoral Level."
+        else:
+            suggest4="Unhealthy Cholestoral Level."
+    
+    
+        
+    return suggest1,suggest2,suggest3,suggest4
 
 def cancer(symtomlist):
     print(symtomlist)
