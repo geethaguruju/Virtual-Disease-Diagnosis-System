@@ -176,11 +176,25 @@ def kidney(symptomlist):
 
 def liver(symptomlist):
     print(symptomlist)
-    if float(symptomlist[2])<=1.2 and  float(symptomlist[2])>0.1 : # total bilirubin
-        suggest1=""
-    suggest1="Eat healthy vegetables"
-    suggest2="Exercise Regularly"
-    return suggest1,suggest2
+    if float(symptomlist[1])<=1.2 and  float(symptomlist[1])>0.1 : # total bilirubin
+        suggest1="1. Your Total Bilirubin levels are in optimum range. Please drink more water to maintain the liver health."
+    else:
+        suggest1="1. You have elevated bilirubin levels, you should take steps to lower them and promote liver health by making several changes to your diet. These changes include drinking more water, cutting back on your alcohol consumption, and eating more fruits and vegetables and fewer processed foods."
+    if float(symptomlist[2])<=0.4 : # direct bilirubin
+        suggest2="2. Your Direct Bilirubin levels are normal. Maintain a healthy diet and drink more water to stay healthy. "
+    else:
+        suggest2="2. You have high direct bilirubin levels. Bilirubin levels may increase with stress, strain, dehydration, fasting, infection or exposure to cold. Please be careful and add Vitamin D to the diet."
+    if float(symptomlist[3])<=240 and  float(symptomlist[3])>47 :#alkaline phosphatose
+        suggest3="3. Your alkaline phosphatase (ALP) levels are normal. Keep exercising regularly to maintain optimum ALP levels."
+    else:
+        suggest3="3. You have High alkaline phosphatase (ALP) levels. In a nutshell, you should take targeted liver-protective herbs and nutrients while adapting your diet and reducing alcohol intake. Add Omega-3 Fatty Acids to your diet and cut down on caffeine. Get more sun exposure or take vitamin D supplements."
+    if float(symptomlist[6])<=8.3 and  float(symptomlist[6])>=6.0 :
+        suggest4=" Your Total Proteins are in normal range. Consume foods high in protein which include meat, fish, poultry, eggs, legumes, and soy products like tofu or tempeh."
+    elif float(symptomlist[6])<6.0:
+        suggest4=" You have low protein levels, which may suggest liver disease, malnutrition, malabsorption disorders or congestive heart failure. Consume foods high in protein which include meat, fish, poultry, eggs, legumes, and soy products like tofu or tempeh."
+    else:
+        suggest4="You have high protein levels, which may indicate liver disease, chronic kidney disease, cancers such as multiple myeloma. Please consult doctor! "
+    return suggest1,suggest2,suggest3,suggest4
 
 def ValuePredictor(to_predict_list, size):
     to_predict = np.array(to_predict_list).reshape(1,size)
