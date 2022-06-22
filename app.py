@@ -113,8 +113,8 @@ def diabetes(symptomlist):
         suggest4="4. You are in the obese range. Reduction of body weight is the need of the hour."
     else: 
         suggest4="4. You fall under the category of Class III obesity and you might start experiencing obesity-related health conditions. A combination of dieting, behavior modification therapy and exercise should help."
-        
-    return suggest1,suggest2,suggest3,suggest4
+    suggest5=   "Long-term complications of diabetes develop gradually. The longer you have diabetes — and the less controlled your blood sugar — the higher the risk of complications like nerve damage, cardiovascular disease, kidney damage, hearing impairment, etc. "
+    return suggest1,suggest2,suggest3,suggest4,suggest5
 
 def heart(symptomlist):
     print(symptomlist)
@@ -124,40 +124,40 @@ def heart(symptomlist):
         suggest1="1. You are much more likely to develop a heart disease but there are things you can do to delay, lower, or possibly avoid or reverse your risk."
     
     if int(symptomlist[2])==0: # chestpaintype
-        suggest2=""
+        suggest2="2. You have asymptomatic myocardial ischemia."
     elif int(symptomlist[2])==1: 
-        suggest2=""
+        suggest2="2. You have atypical angina."
     elif int(symptomlist[2])==2:
-        suggest2=""
+        suggest2="2. You have non-anginal pain."
     elif int(symptomlist[2])==3:
-        suggest2=""
+        suggest2="2. You have typical angina."
    
     if int(symptomlist[3])<120: # resting bp
-        suggest3="3. "
+        suggest3="3. You have a perfectly healthy composition of fats, hence a normal BP level."
     elif int(symptomlist[3])>=120 and  int(symptomlist[3])<=129: 
-        suggest3=""
+        suggest3="3. You have a elevated blood pressure level. Regular exercise, healthy diet, limited sodium, stress management might help."
     elif int(symptomlist[3])>=130 and  int(symptomlist[3])<=139:
-        suggest3=""
+        suggest3="3. You have high blood pressure (Hypertension Stage 1). "
     elif int(symptomlist[3])>=140 and  int(symptomlist[3])<=180:
-        suggest3=""
+        suggest3="3. You have high blood pressure (Hypertension Stage 2)."
     else: 
-        suggest3=""
+        suggest3="3. You have Hypertensive crisis. Consult a doctor immediately."
     
-    if int(symptomlist[0])>=20: #cholestoral
+    if int(symptomlist[0])>=20: #cholestrol
     
         if int(symptomlist[4])>=125 and int(symptomlist[4])<=200:
-            suggest4="4. Healthy Cholestoral Level."
+            suggest4="4. You have a healthy cholestrol level."
         else:
-            suggest4="4. Unhealthy Cholestoral Level."
+            suggest4="4. You have an unhealthy cholestrol evel."
 
      
     else:
     
         if int(symptomlist[4])<=170:
-            suggest4="Healthy Cholestoral Level."
+            suggest4="4. You have a healthy cholestrol level."
         else:
-            suggest4="Unhealthy Cholestoral Level."
-    
+            suggest4="4. You have an unhealthy cholestrol level."
+        
     
         
     return suggest1,suggest2,suggest3,suggest4
