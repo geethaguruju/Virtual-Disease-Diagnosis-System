@@ -162,20 +162,22 @@ def heart(symptomlist):
         
     return suggest1,suggest2,suggest3,suggest4
 
-def cancer(symtomlist):
-    print(symtomlist)
+def cancer(symptomlist):
+    print(symptomlist)
     suggest1="Eat healthy vegetables"
     suggest2="Exercise Regularly"
     return suggest1,suggest2
 
-def kidney(symtomlist):
-    print(symtomlist)
+def kidney(symptomlist):
+    print(symptomlist)
     suggest1="Eat healthy vegetables"
     suggest2="Exercise Regularly"
     return suggest1,suggest2
 
-def liver(symtomlist):
-    print(symtomlist)
+def liver(symptomlist):
+    print(symptomlist)
+    if float(symptomlist[2])<=1.2 and  float(symptomlist[2])>0.1 : # total bilirubin
+        suggest1=""
     suggest1="Eat healthy vegetables"
     suggest2="Exercise Regularly"
     return suggest1,suggest2
