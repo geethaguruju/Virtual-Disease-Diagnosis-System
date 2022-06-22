@@ -148,25 +148,25 @@ def heart(symptomlist):
         if int(symptomlist[4])>=125 and int(symptomlist[4])<=200:
             suggest4="4. You have a healthy cholestrol level."
         else:
-            suggest4="4. You have an unhealthy cholestrol evel."
-
-     
+            suggest4="4. You have an unhealthy cholestrol evel."     
     else:
     
         if int(symptomlist[4])<=170:
             suggest4="4. You have a healthy cholestrol level."
         else:
             suggest4="4. You have an unhealthy cholestrol level."
-        
+    suggest5="Sometimes, heart failure leads to other conditions, such as kidney or liver damage or heart-valve problems. If your doctor thinks you may have heart failure, they may run blood and other tests to check what's going on with your heart and to see what other conditions you might have."
     
         
-    return suggest1,suggest2,suggest3,suggest4
+    return suggest1,suggest2,suggest3,suggest4,suggest5
 
 def cancer(symptomlist):
     print(symptomlist)
-    suggest1="Eat healthy vegetables"
-    suggest2="Exercise Regularly"
-    return suggest1,suggest2
+    suggest1="1. Avoid becoming overweight. Obesity raises the risk of breast cancer after menopause, the time of life when breast cancer most often occurs. Avoid gaining weight over time, and try to maintain a body-mass index of 25 or less (calculators can be found online)."
+    suggest2="2. Eat healthy to avoid tipping the scale. Embrace a diet high in vegetables and fruit and low in sugared drinks, refined carbohydrates and fatty foods. Eat lean protein such as fish or chicken breast and eat red meat in moderation, if at all. Eat whole grains. Choose vegetable oils over animal fats."
+    suggest3="3. Keep physically active. Research suggests that increased physical activity, even when begun later in life, reduces overall breast-cancer risk by at least 10 percent. All it takes is moderate exercise like a 30-minute walk five days a week to get this protective effect. "
+    suggest4="4. Drink little or no alcohol. Alcohol use is associated with an increased risk of breast cancer. Women should limit intake to no more than one drink per day, regardless of the type of alcohol."
+    return suggest1,suggest2,suggest3,suggest4
 
 def kidney(symptomlist):
     print(symptomlist)
