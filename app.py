@@ -170,9 +170,27 @@ def cancer(symptomlist):
 
 def kidney(symptomlist):
     print(symptomlist)
-    suggest1="Eat healthy vegetables"
-    suggest2="Exercise Regularly"
-    return suggest1,suggest2
+    if float(symptomlist[1])<= 100: # glucose
+        suggest1="1. You have an ideal blood glucose level, please keep maintaining a limited sugar intake to stay healthy."
+    else:
+        suggest1="1. You have high blood glucose level, please reduce you sugar intake immediately!!"
+    if int(symptomlist[1])<90: # blood pressure
+        suggest2="2. You have low Blood Pressure, please drink plenty of water and limit alcohol intake. Also, add some salt to your diet. "
+    elif int(symptomlist[1])>=90 and  int(symptomlist[2])<=120: 
+        suggest2="2. Your BP is in the normal range, please maintain a balanced diet and keep exercising to stay fit."
+    elif int(symptomlist[1])>120 and  int(symptomlist[2])<=129:
+        suggest2="2. You have an elevated Blood Pressure level and are likely to develop high BP unless steps are taken to control the condition. Please reduce sodium in your diet, exercise regularly, cut back on caffeine, quit smoking and eat a healthy diet. Also, lose extra pounds and watch your waistline. BP often increases as weight increases. "
+    elif int(symptomlist[1])>=130 and  int(symptomlist[2])<=139:
+        suggest2="2. Your BP is in Hypertension Stage 1, please consult the doctor immediately. Doctors are likely to prescribe lifestyle changes and may consider adding blood pressure medication based on your risk. Please reduce sodium in your diet, exercise regularly, cut back on caffeine, quit smoking and eat a healthy diet. "
+    else: 
+        suggest2="2. Your BP is in Hypertension Stage 2, please consult the doctor immediately. At this stage of high blood pressure, doctors are likely to prescribe a combination of blood pressure medications and lifestyle changes. Please reduce sodium in your diet, exercise regularly, cut back on caffeine, quit smoking and eat a healthy diet. "
+    if float(symptomlist[2])>=3.3 and  float(symptomlist[2])<=5.5:
+        suggest3=" Ypu have optimum Albumin levels in your blood. Please drink more water and exercise regularly to stay healthy."
+    elif float(symptomlist[2])<=3.3:
+        suggest3="3. You have Lower-than-normal albumin levels in your blood (hypoalbuminemia) which may indicate: Infection. Inflammation due to sepsis, surgery or another condition."
+    else:
+        suggest3="3. You have Higher than normal albumin levels in your blood (hyperalbuminemia) which may indicate: dehydration and severe diarrhea." 
+    return suggest1,suggest2,suggest3
 
 def liver(symptomlist):
     print(symptomlist)
