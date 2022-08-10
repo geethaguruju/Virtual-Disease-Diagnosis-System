@@ -1,6 +1,18 @@
 {% extends 'main.html' %}
 {% block content %}
-
+<script type = "text/javascript">
+    function validate(){
+        if( document.diabetes.pregnancies.value == ""  || document.diabetes.glucose.value == "" || document.diabetes.bloodpressure.value == "" || document.diabetes.skinthickness.value == "" || document.diabetes.insulin.value == "" || document.diabetes.bmi.value == "" || document.diabetes.dpf.value == "" || document.diabetes.age.value == ""  ) {
+                alert( "Input value missing, please enter all the values!" );
+                return false;
+    }
+        else if(isNaN(document.diabetes.pregnancies.value)  || isNaN(document.diabetes.glucose.value) || isNaN(document.diabetes.bloodpressure.value) || isNaN(document.diabetes.skinthickness.value) || isNaN(document.diabetes.insulin.value) || isNaN(document.diabetes.bmi.value)|| isNaN(document.diabetes.dpf.value) || isNaN(document.diabetes.age.value)){
+                alert( "Incorrect input, please enter numeric values!" );
+                return false;
+        }
+        return(true);
+    }
+    </script>
 <div class="row"  style="margin-bottom: 125px;">
     <div class="col-md-2"></div>
     <div class="col-md-8">
