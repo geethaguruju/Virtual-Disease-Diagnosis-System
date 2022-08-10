@@ -1,5 +1,18 @@
 {% extends 'main.html' %}
 {% block content %}
+<script type = "text/javascript">
+function validate(){
+    if( document.diabetes.pregnancies.value == ""  || document.diabetes.glucose.value == "" || document.diabetes.bloodpressure.value == "" || document.diabetes.skinthickness.value == "" || document.diabetes.insulin.value == "" || document.diabetes.bmi.value == "" || document.diabetes.dpf.value == "" || document.diabetes.age.value == ""  ) {
+            alert( "Input value missing, please enter all the values!" );
+            return false;
+}
+    else if(isNaN(document.diabetes.pregnancies.value)  || isNaN(document.diabetes.glucose.value) || isNaN(document.diabetes.bloodpressure.value) || isNaN(document.diabetes.skinthickness.value) || isNaN(document.diabetes.insulin.value) || isNaN(document.diabetes.bmi.value)|| isNaN(document.diabetes.dpf.value) || isNaN(document.diabetes.age.value)){
+            alert( "Incorrect input, please enter numeric values!" );
+            return false;
+    }
+    return(true);
+}
+</script>
 {% if message %}
         <div class="alert alert-danger">{{ message }}</div>
     {% endif %}
@@ -8,7 +21,7 @@
         <div class="col-md-6">
             <center><h1>Diabetes</h1></center>
             <div class="card card-body" style="border: 1px solid black;">
-                <form class="form-horizontal" action="/result" method="POST">
+                <form class="form-horizontal" action="/result" method="POST" name="diabetes" onsubmit="return(validate());">
                     <div class="form-group">
                         <input style="border: 1px solid black;" class="form-control" type="text" id="Pregnancies" name="pregnancies" placeholder="Number of Pregnancies eg. 0">
                     </div>
@@ -34,7 +47,7 @@
                         <input style="border: 1px solid black;" class="form-control" type="text" id="Age" name="age" placeholder="Age (years) eg. 34">
                     </div>
 
-            		<input type="submit" class="btn btn-info btn-block" value="Predict">
+            		<input type="submit" class="btn btn-info btn-block" value="Predict" >
                 </form>
             </div>
         </div>

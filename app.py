@@ -48,6 +48,10 @@ app=Flask(__name__,template_folder='template')
 @app.route("/home")
 def home():
     return render_template("home.html")
+
+@app.route("/index")
+def index():
+    return render_template("index.html")
  
 @app.route("/about")
 def about():
@@ -162,12 +166,13 @@ def heart(symptomlist):
 
 def cancer(symptomlist):
     print(symptomlist)
-    suggest1="1. Avoid becoming overweight. Obesity raises the risk of breast cancer after menopause, the time of life when breast cancer most often occurs. Avoid gaining weight over time, and try to maintain a body-mass index of 25 or less (calculators can be found online)."
+    
+    suggest1="1. Avoid becoming overweight. Obesity raises the risk of breast cancer after menopause, the time of life when breast cancer most often occurs. Avoid gaining weight over time, and try to maintain a body-mass index of 25 or less (calculators can be found online)."  
     suggest2="2. Eat healthy to avoid tipping the scale. Embrace a diet high in vegetables and fruit and low in sugared drinks, refined carbohydrates and fatty foods. Eat lean protein such as fish or chicken breast and eat red meat in moderation, if at all. Eat whole grains. Choose vegetable oils over animal fats."
     suggest3="3. Keep physically active. Research suggests that increased physical activity, even when begun later in life, reduces overall breast-cancer risk by at least 10 percent. All it takes is moderate exercise like a 30-minute walk five days a week to get this protective effect. "
     suggest4="4. Drink little or no alcohol. Alcohol use is associated with an increased risk of breast cancer. Women should limit intake to no more than one drink per day, regardless of the type of alcohol."
     return suggest1,suggest2,suggest3,suggest4
-
+    
 def kidney(symptomlist):
     print(symptomlist)
     if float(symptomlist[1])<= 100: # glucose
@@ -207,11 +212,11 @@ def liver(symptomlist):
     else:
         suggest3="3. You have High alkaline phosphatase (ALP) levels. In a nutshell, you should take targeted liver-protective herbs and nutrients while adapting your diet and reducing alcohol intake. Add Omega-3 Fatty Acids to your diet and cut down on caffeine. Get more sun exposure or take vitamin D supplements."
     if float(symptomlist[6])<=8.3 and  float(symptomlist[6])>=6.0 :
-        suggest4=" Your Total Proteins are in normal range. Consume foods high in protein which include meat, fish, poultry, eggs, legumes, and soy products like tofu or tempeh."
+        suggest4="4. Your Total Proteins are in normal range. Consume foods high in protein which include meat, fish, poultry, eggs, legumes, and soy products like tofu or tempeh."
     elif float(symptomlist[6])<6.0:
-        suggest4=" You have low protein levels, which may suggest liver disease, malnutrition, malabsorption disorders or congestive heart failure. Consume foods high in protein which include meat, fish, poultry, eggs, legumes, and soy products like tofu or tempeh."
+        suggest4="4. You have low protein levels, which may suggest liver disease, malnutrition, malabsorption disorders or congestive heart failure. Consume foods high in protein which include meat, fish, poultry, eggs, legumes, and soy products like tofu or tempeh."
     else:
-        suggest4="You have high protein levels, which may indicate liver disease, chronic kidney disease, cancers such as multiple myeloma. Please consult doctor! "
+        suggest4="4. You have high protein levels, which may indicate liver disease, chronic kidney disease, cancers such as multiple myeloma. Please consult doctor! "
     return suggest1,suggest2,suggest3,suggest4
 
 def ValuePredictor(to_predict_list, size):
