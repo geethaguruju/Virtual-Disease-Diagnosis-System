@@ -1,237 +1,98 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="og:title" content="Virtual Disease Diagnosis System">
-  <meta name="author" content="Geetha, Ayushi, Priyanka">
-  <meta name="og:image" content="static/logo1.png">
-  <meta name="Keywords" content="Flask, Machine Learning, Deep Learning, Artificial Intelligence, AI, ML,DL, Web Development">
-  <meta name="description" content="A Machine Learning and Deep Learning based webapp for Multiple Disease Prediction.">
-  <title>Virtual Disease Diagonsis System</title>
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
-  <link rel="icon" href="{{ url_for('static', filename = 'logo1.png') }}" type="image/icon type">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sticky-footer/">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-      
-  <style>
-    html, body{ height:100%; margin:0; }
-header{ height:50px;}
-footer{ height:75px; background:black; }
-
-/* Trick */
-body{ 
-  display:flex; 
-  flex-direction:column; 
-}
-
-footer{
-  padding:10px;
-  margin-top:auto;
-  margin-bottom: auto; 
-}
-
-#predict{
-    position: static;
-    width: 100px;
-    padding: 5px;
-    text-align: center;
-        
-} 
-
-#predicted-data{
-  margin-top: 5% !important;
-  width: 40%;
-  background:rgba(3, 169, 244, 0.48);
-  padding: 10px;
-  font-size: 16px;
-  text-align: center;
-  text-shadow: -5px 5px 6px white;
-  box-shadow: 3px 1px 3px 0px #607D8B;
-  display:inline-block;
-      
-}
-
-
-
-#inputsym{
-   
-   position: fixed;
-   right: 100px;
-}
-
-.symptoms{
-  border:ridge rgb(150, 177, 199);
-  margin: 2px;
-  display: block ;
-  text-align: center;
-  padding: 0px !important;
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
   
-  background-color: #fdffff;
-  text-shadow: 0px 1px 20px rgba(3, 169, 244, 0.78);
-  box-shadow: 0px 8px 16px 0px rgba(78, 191, 243, 0.05);
- 
-}
-
-#symptoms-box{ 
-position: static;
-margin-top: 5%;
-margin-left: 20%;
-margin-right: 20%;
-text-align: center;
-
-background-color: #e9ecef !important;
-min-height: 300px;
-
-padding: 10px 10px 10px 10px;
-    
-}
-
-.card-body{
-  margin-left: auto ;
-  margin-right: auto ;
+    <title>Medilab Bootstrap Template - Index</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
   
+    <!-- Favicons -->
+    <link href="{{ url_for('static', filename='favicon.png') }}" rel="icon">
+    <link href="{{ url_for('static', filename='apple-touch-icon.png') }}" rel="apple-touch-icon">
   
-}
-/*  ------------------------------------------------------------*/
-/* Dropdown Button */
- .dropbtn {
-    position: relative;
-    left:50%;
-    width: 150px;
-    background-color: #3498DB;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-  } 
-   
-  /* Dropdown button on hover & focus */
-  .dropbtn:hover, .dropbtn:focus {
-    background-color: #2980B9;
-  }
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
   
-  /* The container <div> - needed to position the dropdown content */
-  .dropdown {
-    position: relative;
-    left:40%;
-    
-  } 
-  #container-dropdown{
-
-    
-    min-width: 1130px;
-    min-height: 200px;
-  }
+    <!-- Vendor CSS Files -->
+    <link href="{{ url_for('static', filename='css/all.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/animate.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/boxicons.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/glightbox.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/remixicon.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/swiper-bundle.min.css') }}" rel="stylesheet">
   
-  /* Dropdown Content (Hidden by Default) */
-  .drop-content {
-    left:10%;
-    right: 10%;
-    display: none;
-    background-color: #fdffff;
-    
-    text-shadow: 0px 1px 20px rgb(7, 97, 231);
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    
-  }
-
+    <!-- Template Main CSS File -->
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
   
-.dropdown-item {
-  position: relative;
-  min-width: 100px ;    
-  text-align: center !important;
-  width: auto !important;
-  display:inline-block ;
-  cursor: pointer;         
-
-  clear: both;
-  text-align: center; 
-  border: 0; 
-
-  margin: 10px !important;
+    <!-- =======================================================
+    * Template Name: Medilab - v4.8.1
+    * Template URL: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+  </head>
   
-  background-color: #fdffff;
-  text-shadow: 0px 1px 20px rgba(3, 169, 244, 0.78);
-  box-shadow: 0px 8px 16px 0px rgba(3, 169, 244, 0.05);
 
-  line-height: 2;
-  padding: 4px !important;
-  
-}
-  
-  /* Links inside the dropdown 
-  .dropdown-content a {
- 
-  }*/
-  
-  /* Change color of dropdown links on hover */
-  .dropdown-content a:hover {background-color: rgb(90, 181, 241);
-  }
-
-  
-  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container
-   when the user clicks on the dropdown button) */
-  .show {display:inline-block;}
-
-
-  #searchbar{ 
-    margin-left: 25%; 
-    padding:10px; 
-    border-radius: 10px; 
-   
-    width: 30%; 
-} 
-
-  #searchbardiv{
-    padding:10px; 
-
-  }
-  
-  </style>
-
-</head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark" style="background-color:rgb(31, 105, 202) !important;">
-        <a style="color:aliceblue" href="{{ url_for('home') }}">Virtual Disease Diagnosis System</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-           <span class="navbar-toggler-icon"></span>
-         </button>
-         <div class="collapse navbar-collapse" id="navbarNav">
-           <ul class="navbar-nav ml-auto">
-             <li class="nav-item active">
-               <a href="/" class="nav-link">Home</a>
-             </li>
-             <li class="nav-item active">
-              <a class="nav-link" href="/about">About</a>
-            </li>
-             <li class="nav-item active">
-              <a class="nav-link" href="/general">General Disease</a>
-            </li>
-             <li class="nav-item active">
-               <a class="nav-link" href="/diabetes">Diabetes</a>
-             </li>
-             <li class="nav-item active">
-               <a class="nav-link" href="/cancer">Breast Cancer</a>
-             </li>
-             <li class="nav-item active">
-                <a class="nav-link" href="/heart">Heart</a>
-             </li>
-             <li class="nav-item active">
-                <a class="nav-link" href="/kidney">Kidney</a>
+  <div id="topbar" class="d-flex align-items-center fixed-top"> 
+    <div class="container d-flex justify-content-between">
+      <div class="contact-info d-flex align-items-center">
+        
+      </div>
+      <div class="d-none d-lg-flex social-links align-items-center">
+        
+      
+      </div>
+    </div> 
+  </div>  
+ 
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top" style="background-color:#E0FFFF" >
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto"><a href="/home">VDDS</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="#departments">About</a></li>
+          <li><a class="nav-link scrollto" href="#services">Facts</a></li> 
+          <li id="drop" class="dropdown"><a href="#"><span>Diagnosis</span> <i class="bi fa-caret-down"></i></a>
+            <ul>
+              <li><a href="/general">General Diagnosis</a></li>
+              <!--
+              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
               </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="/liver">Liver</a>
-              </li>
-           </ul>
-         </div>
-       </nav>
-	<br>
+            -->
+              <li><a href="/diabetes">Diabetes</a></li>
+              <li><a href="/heart">Heart Disease</a></li>
+              <li><a href="/liver">Liver Disease</a></li>
+              <li><a href="/kidney">Kidney Disease</a></li>
+              <li><a href="/cancer">Breast Cancer</a></li>
+            </ul>
+          </li>
+          
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+      
+    </div>
+  </header><!-- End Header -->
+<br>
 <br>
 <br>
 <br>
@@ -242,15 +103,68 @@ padding: 10px 10px 10px 10px;
 	{% endblock %}
     </div>
   </main>
-  <footer>
-    <center>
-      <ul style="list-style-type:none;">
+ <!-- ======= Footer ======= -->
+ <footer id="footer" style="background-color:#E0FFFF">
+
+  <div class="container d-md-flex py-4 ">
+    
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6 footer-contact">
+            <h5>Virtual Disease Diagnosis System</h5>
+            <p><br>
+              <strong>A project by</strong> <br>
+              Geetha Krishna<br>
+               Ayushi Verma<br>
+               Priyanka Myaragalla<br>
+              
+            </p>
+          </div>
+
+          <div class="col-lg-6 col-md-6 footer-contact">
+            <h5></h5>
+            <p><br><br>
+              <strong>Institution: </strong> G. Narayanamma Institute of Technology and Science <br>
+              <strong>Location: </strong> Shaikpet, Hyderabad<br>
+               
+              <strong>Website: </strong> www.gnits.ac.in<br>
+              
+            </p>
+          </div>
+          <div class="col-lg-2 col-md-6 footer-contact">
+            <h5></h5>
+            <p><br><br>
+              <strong>Any Questions? </strong>  <br>
+              <strong>Contact us: </strong><br>
+               
+              geethaguruju@gmail.com<br>
+              ayushiverma192002@gmail.com<br>
+              
+            </p>
+          </div>
+          
+
+        </div>
       
-      &nbsp;
-      <li style="display: inline;"><a href="https://github.com/geethaguruju/Virtual-Disease-Diagnosis-System" style="color: white;" target="blank"><span class="fa fa-github">  GitHub</span></a></li>
-      
-    </ul>
-  </center>
-  </footer>
+    </div>
+    
+  </div>
+</footer><!-- End Footer -->
+
+<div id="preloader"></div>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+<script src="{{ url_for('static', filename='vendor/purecounter/purecounter_vanilla.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/glightbox/js/glightbox.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/php-email-form/validate.js') }}"></script>
+
+<!-- Template Main JS File -->
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
 </body>
+
 </html>
