@@ -19,39 +19,40 @@
 <div class="row" style="margin-bottom: 175px;">
     <div class="col-md-2"></div>
     <div class="col-md-8">
-        <br>
         <center><h1>Heart Disease</h1></center>
-        <br>
         <div class="card card-body" style="border: 1px solid black;">
             <form class="form-horizontal" action="/result" method="POST" name="heart" onsubmit="return(validate());">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <input style="border: 1px solid black;" class="form-control" type="text" name="age" id="age" placeholder="age">
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <input style="border: 1px solid black;" class="form-control" type="text" id="sex" name="sex" placeholder="sex(Male:1, female:0)">
                         </div>
                     </div>
-                    <div class="col-md-4">
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <input style="border: 1px solid black;" class="form-control" type="text" id="chest pain type" name="cp" placeholder="chest pain type"></div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
+                
+                    <div class="col-md-6">
                         <div class="form-group">
                             <input style="border: 1px solid black;" class="form-control" type="text" id="trestbps" name="trestbps" placeholder="resting blood pressure in mm Hg">
                         </div>
                     </div>
-                    <div class="col-md-4">
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <input style="border: 1px solid black;" class="form-control" type="text" id="serum cholestoral in mg/dl" name="chol" placeholder="serum cholestoral in mg/dl">
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <input style="border: 1px solid black;" class="form-control" type="text" id="restecg" name="restecg" placeholder="resting electrocardiographic results">
                         </div>
@@ -59,30 +60,33 @@
                 </div>
                 <div class="row">
                     
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <input style="border: 1px solid black;" class="form-control" type="text" id="thalach" name="thalach" placeholder="maximum heart rate achieved">
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <input style="border: 1px solid black;" class="form-control" type="text" id="exang" name="exang" placeholder="exercise induced angina (1 = yes; 0 = no)">
                         </div>
                     </div>
-                    <div class="col-md-4">
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <input style="border: 1px solid black;" class="form-control" type="text" id="oldpeak" name="oldpeak" placeholder="ST depression induced by exercise relative to rest">
                         </div>
                     </div>
-                </div>
-                <div class="row">
+                
                     
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <input style="border: 1px solid black;" class="form-control" id="slope" type="text" name="slope" placeholder="the slope of the peak exercise ST segment">
                         </div>
                     </div>
-                    <div class="col-md-4">
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <input style="border: 1px solid black;" class="form-control" type="text" id="thal" name="thal" placeholder=" thal 3 = normal; 6 = fixed defect; 7 = reversable defect">
                         </div>
