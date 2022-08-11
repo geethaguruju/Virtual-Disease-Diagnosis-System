@@ -2,13 +2,27 @@
 {% extends 'main.html' %}
 {% block content %}
 
+<script type = "text/javascript">
+    function validate(){
+        if( document.heart.age.value == ""  || document.heart.sex.value == "" || document.heart.cp.value == "" || document.heart.trestbps.value == "" || document.heart.chol.value == "" || document.heart.restecg.value == "" || document.heart.thalach.value == "" || document.heart.exang.value == ""   || document.heart.oldpeak.value == "" || document.heart.slope.value == "" || document.heart.thal.value == "" ){
+                alert( "Input value missing, please enter all the values!" );
+                return false;
+    }
+        else if(isNaN(document.heart.age.value)  || isNaN(document.heart.sex.value) || isNaN(document.heart.cp.value) || isNaN(document.heart.trestbps.value) || isNaN(document.heart.chol.value) || isNaN(document.heart.restecg.value)|| isNaN(document.heart.thalach.value) || isNaN(document.heart.exang.value)|| isNaN(document.heart.oldpeak.value)|| isNaN(document.heart.slope.value)|| isNaN(document.heart.thal.value)){
+                alert( "Incorrect input, please enter numeric values!" );
+                return false;
+        }
+        return(true);
+    }
+    </script>
+
 <div class="row" style="margin-bottom: 175px;">
     <div class="col-md-2"></div>
     <div class="col-md-8">
         <center><h1>Heart Disease</h1></center>
         
         <div class="card card-body" style="border: 1px solid black;">
-            <form class="form-horizontal" action="/result" method="POST">
+            <form class="form-horizontal" action="/result" method="POST" name="heart" onsubmit="return(validate());">
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
