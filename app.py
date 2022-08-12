@@ -1,4 +1,5 @@
 #Important Modules
+from dis import dis
 import json
 from flask import jsonify
 from flask import Flask,render_template, url_for ,flash , redirect
@@ -83,6 +84,9 @@ def kidney():
 def general():
     return render_template("general.html",list2=alphabaticsymptomslist)
 
+
+
+
 def diabetes(symptomlist):
     print(symptomlist)
     if int(symptomlist[1])<= 100: # glucose
@@ -114,7 +118,8 @@ def diabetes(symptomlist):
     else: 
         suggest4="4. You fall under the category of Class III obesity and you might start experiencing obesity-related health conditions. A combination of dieting, behavior modification therapy and exercise should help."
     suggest5=   "Long-term complications of diabetes develop gradually. The longer you have diabetes — and the less controlled your blood sugar — the higher the risk of complications like nerve damage, cardiovascular disease, kidney damage, hearing impairment, etc. "
-    return suggest1,suggest2,suggest3,suggest4,suggest5
+    link1="https://www.gnits.ac.in"
+    return suggest1,suggest2,suggest3,suggest4,suggest5,link1
 
 def heart(symptomlist):
     print(symptomlist)
@@ -244,10 +249,12 @@ def result():
             result = ValuePredictor(to_predict_list,30)
             dis="Breast Cancer"
             suggest=cancer(to_predict_list)
+            
         elif(len(to_predict_list)==8):#Daiabtes
             result = ValuePredictor(to_predict_list,8)
             dis="Diabetes"
             suggest=diabetes(to_predict_list)
+            link=suggest[5]
         elif(len(to_predict_list)==12):
             result = ValuePredictor(to_predict_list,12)
             dis="Kidney Disease"
@@ -264,7 +271,7 @@ def result():
         prediction=1
     else:
         prediction=0 """
-    return(render_template("result.html", pred=result, dis=dis,suggest=suggest))
+    return(render_template("result.html", pred=result, dis=dis,suggest=suggest,link=link))
 
 @app.route("/generalpredict", methods = ['POST', 'GET'])
 def generalPredictPage():
@@ -319,6 +326,21 @@ def generalPredictPage():
                  confidencescore = format(confidencescore, '.0f')
                  predicted_disease = predicted[0]
                  return jsonify({'predicteddisease': predicted_disease ,'confidencescore':confidencescore})
+                   
+    except:
+        message = "Please enter valid Data"
+        return render_template("home.html", message = message)
+
+@app.route("/resultlink", methods = ['POST', 'GET'])
+def resultlinkpage():
+    try:
+        print("this is result link func")      
+        if request.method == 'POST':
+            disease=dis
+            input_sym=request.get_json()
+            print(input_sym)
+
+            return jsonify({'predicteddisease': disease})
                    
     except:
         message = "Please enter valid Data"

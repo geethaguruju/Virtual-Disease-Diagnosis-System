@@ -16,7 +16,11 @@ $("#suggest").click(function () {
 
   });
 
+  
+   
+
 });
+
 
 
  </script>
@@ -30,34 +34,40 @@ $("#suggest").click(function () {
           <div class="card card-body alert alert-success"><center>Great! You are HEALTHY.</center></div>
           {% endif %}
 
-            <p>Want to know more about the {{ dis }} and its symptoms ?</p>
+            <p>Want to know more about {{ dis }} and its symptoms ?</p>
             <div class="row">
-                <div class="col-md-4"><a href="/about" class="btn btn-block btn-primary">Know more</a></div>
-                <div class="col-md-4"><button class="btn btn-success dropdown-toggle" id="suggest">View Suggestions</button></div>
-                <div class="col-md-4"><a href="{{ url_for('home') }}" class="btn btn-block btn-danger">Back to Home</a></div>
+            
+                <div class="col-md-4"><a  id="href" href="https://www.google.com/search?q={{dis}}" class="btn btn-block " style="background-color:#008080; color: white;" target="_blank" rel="noopener noreferrer">Know more</a></div>
+                <div class="col-md-4"><button class="btn  dropdown-toggle" id="suggest" style="background-color:#008B8B; color: white;">View Suggestions</button></div>
+                <div class="col-md-4"><a href="{{ url_for('home') }}" class="btn btn-block " style="background-color:#3B9C9C; color: white;">Back to Home</a></div>
                 <div class="col-md-4"></div>
             </div>
         </div>
         <div class="col-md-3"></div>
       </div>  
-        <div id="resultdiv" style="display: none;" >
-          <div class="col-md-3"></div>
-          <div class="text-left card row alert-success card-body col-md-6 " >
+        <div id="resultdiv" style="display: none; " >
+          <div class="col-md-2"></div>
+          <div class="text-left card row alert-success card-body col-md-8 " style="background-color: #F0FFFF;" >
         
-            <h5>Suggestions:</h5>
+            <strong><h5>Suggestions:</h5></strong>
             <br>
             {% for i in suggest %}
             
             <div  id="suggest1" class="col-md-12">
   
-              <h6> {{i}} </h6> 
+              <h6> {{i}} </h6> <h6><a href="{{link}}">know</a></h6>
               
             </div>  
             <br>         
             {% endfor %}
                 
           </div>
-          <div class="col-md-3"></div>
+          <div class="col-md-2"></div>
         </div>
-    
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
 {% endblock %}
