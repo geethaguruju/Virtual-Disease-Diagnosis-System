@@ -2,11 +2,11 @@
 {% block content %}
 <script type = "text/javascript">
     function validate(){
-        if( document.diabetes.pregnancies.value == ""  || document.diabetes.glucose.value == "" || document.diabetes.bloodpressure.value == "" || document.diabetes.skinthickness.value == "" || document.diabetes.insulin.value == "" || document.diabetes.bmi.value == "" || document.diabetes.dpf.value == "" || document.diabetes.age.value == ""  ) {
+        if( document.kidney.age.value == ""  || document.kidney.bp.value == "" || document.kidney.al.value == "" || document.kidney.pcc.value == "" || document.kidney.bgr.value == "" || document.kidney.bu.value == "" || document.kidney.sc.value == "" || document.kidney.hemo.value == "" || document.kidney.pcv.value == "" || document.kidney.appet.value == "" || document.kidney.htn.value == ""|| document.kidney.dm.value == "" ) {
                 alert( "Input value missing, please enter all the values!" );
                 return false;
     }
-        else if(isNaN(document.diabetes.pregnancies.value)  || isNaN(document.diabetes.glucose.value) || isNaN(document.diabetes.bloodpressure.value) || isNaN(document.diabetes.skinthickness.value) || isNaN(document.diabetes.insulin.value) || isNaN(document.diabetes.bmi.value)|| isNaN(document.diabetes.dpf.value) || isNaN(document.diabetes.age.value)){
+        else if (isNaN(document.kidney.age.value)  || isNaN(document.kidney.bp.value) || isNaN(document.kidney.al.value) || isNaN(document.kidney.pcc.value) || isNaN(document.kidney.bgr.value) || isNaN(document.kidney.bu.value)|| isNaN(document.kidney.sc.value) || isNaN(document.kidney.hemo.value) || isNaN(document.kidney.pcv.value)|| isNaN(document.kidney.appet.value)|| isNaN(document.kidney.htn.value)|| isNaN(document.kidney.dm.value)){
                 alert( "Incorrect input, please enter numeric values!" );
                 return false;
         }
@@ -18,7 +18,7 @@
     <div class="col-md-8">
         <center><h1>Kidney Disease </h1></center>
         <div class="card card-body" style="border: 1px solid black;">
-            <form class="form-horizontal" action="/result" method="POST">
+            <form class="form-horizontal" action="/result" method="POST" name="kidney" onsubmit="return(validate());">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">

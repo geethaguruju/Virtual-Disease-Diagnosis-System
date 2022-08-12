@@ -1,6 +1,18 @@
 {% extends 'main.html' %}
 {% block content %}
-
+<script type = "text/javascript">
+    function validate(){
+        if( document.liver.age.value == ""  || document.liver.totbil.value == "" || document.liver.dibil.value == "" || document.liver.alk.value == "" || document.liver.ala.value == "" || document.liver.asp.value == "" || document.kidney.totpro.value == "" || document.liver.albu.value == "" || document.liver.albglo.value == "" || document.liver.gen.value == "" ) {
+                alert( "Input value missing, please enter all the values!" );
+                return false;
+    }
+        else if (isNaN(document.liver.age.value)  || isNaN(document.liver.totbil.value) || isNaN(document.liver.dibil.value) || isNaN(document.liver.alk.value) || isNaN(document.liver.ala.value) || isNaN(document.kidney.asp.value)|| isNaN(document.kidney.totpro.value) || isNaN(document.kidney.albu.value) || isNaN(document.kidney.algblo.value)|| isNaN(document.liver.gen.value)){
+                alert( "Incorrect input, please enter numeric values!" );
+                return false;
+        }
+        return(true);
+    }
+    </script>
 <div class="row"  style="margin-bottom: 175px;">
     <div class="col-md-2"></div>
     <div class="col-md-8">
@@ -8,64 +20,64 @@
         <center><h1>Liver Disease</h1></center>
         <br>
         <div class="card card-body" style="border: 1px solid black;">
-            <form class="form-horizontal" action="/result" method="POST">
+            <form class="form-horizontal" action="/result" method="POST" name="liver" onsubmit="return(validate());">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input style="border: 1px solid black;" class="form-control" type="text" id="Age" name="Age" placeholder="Age">
+                            <input style="border: 1px solid black;" class="form-control" type="text" id="Age" name="age" placeholder="Age">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input style="border: 1px solid black;" class="form-control" type="text" id="Total_Bilirubin" name="Total_Bilirubin" placeholder="Total Bilirubin">
+                            <input style="border: 1px solid black;" class="form-control" type="text" id="Total_Bilirubin" name="totbil" placeholder="Total Bilirubin">
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input style="border: 1px solid black;" class="form-control" type="text" id="Direct_Bilirubin" name="Direct_Bilirubin" placeholder="Direct Bilirubin">
+                            <input style="border: 1px solid black;" class="form-control" type="text" id="Direct_Bilirubin" name="dibil" placeholder="Direct Bilirubin">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input style="border: 1px solid black;" class="form-control" type="text" id="Alkaline_Phosphotase" name="Alkaline_Phosphotase" placeholder="Alkaline Phosphotase">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <input style="border: 1px solid black;" class="form-control" type="text" id="Alamine_Aminotransferase" name="Alamine_Aminotransferase" placeholder="Alamine Aminotransferase">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <input style="border: 1px solid black;" class="form-control" type="text" id="Aspartate_Aminotransferase" name="Aspartate_Aminotransferase" placeholder="Aspartate Aminotransferase">
+                            <input style="border: 1px solid black;" class="form-control" type="text" id="Alkaline_Phosphotase" name="alk" placeholder="Alkaline Phosphotase">
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input style="border: 1px solid black;" class="form-control" type="text" id="Total_Protiens" name="Total_Protiens" placeholder="Total Protiens">
+                            <input style="border: 1px solid black;" class="form-control" type="text" id="Alamine_Aminotransferase" name="ala" placeholder="Alamine Aminotransferase">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input style="border: 1px solid black;" class="form-control" type="text" id="Albumin" name="Albumin" placeholder="Albumin">
+                            <input style="border: 1px solid black;" class="form-control" type="text" id="Aspartate_Aminotransferase" name="asp" placeholder="Aspartate Aminotransferase">
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input style="border: 1px solid black;" class="form-control" type="text" id="Albumin_and_Globulin_Ratio" name="Albumin_and_Globulin_Ratio" placeholder="Albumin and Globulin Ratio">
+                            <input style="border: 1px solid black;" class="form-control" type="text" id="Total_Protiens" name="totpro" placeholder="Total Protiens">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input style="border: 1px solid black;" class="form-control" type="text" id="Gender" name="Gender" placeholder="Gender(Male: 1, Female: 0)">
+                            <input style="border: 1px solid black;" class="form-control" type="text" id="Albumin" name="albu" placeholder="Albumin">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" id="Albumin_and_Globulin_Ratio" name="albglo" placeholder="Albumin and Globulin Ratio">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" id="Gender" name="gen" placeholder="Gender(Male: 1, Female: 0)">
                         </div>
                     </div>
                 </div>
