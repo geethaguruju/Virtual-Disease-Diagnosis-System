@@ -51,11 +51,11 @@ $("#suggest").click(function () {
         
             <strong><h5>Suggestions:</h5></strong>
             <br>
-            {% for i in suggest %}
+            {% for i in range(0,5) %}
             
             <div  id="suggest1" class="col-md-12">
   
-              <h6> {{i}} </h6> <h6><a href="{{link}}">know</a></h6>
+              <h6> {{suggest[i]}}<a href="{{link[i]}}"> Check this out!</a> </h6> 
               
             </div>  
             <br>         

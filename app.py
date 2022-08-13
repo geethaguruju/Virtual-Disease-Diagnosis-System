@@ -162,8 +162,11 @@ def heart(symptomlist):
             suggest4="4. You have an unhealthy cholestrol level."
     suggest5="Sometimes, heart failure leads to other conditions, such as kidney or liver damage or heart-valve problems. If your doctor thinks you may have heart failure, they may run blood and other tests to check what's going on with your heart and to see what other conditions you might have."
     link1="https://www.gnits.ac.in"
-        
-    return suggest1,suggest2,suggest3,suggest4,suggest5,link1
+    link2="https://www.gnits.ac.in"
+    link3="https://www.gnits.ac.in"
+    link4="https://www.gnits.ac.in"
+    link5="https://www.gnits.ac.in"
+    return suggest1,suggest2,suggest3,suggest4,suggest5,link1,link2,link3,link4,link5
 
 def cancer(symptomlist):
     print(symptomlist)
@@ -172,8 +175,13 @@ def cancer(symptomlist):
     suggest2="2. Eat healthy to avoid tipping the scale. Embrace a diet high in vegetables and fruit and low in sugared drinks, refined carbohydrates and fatty foods. Eat lean protein such as fish or chicken breast and eat red meat in moderation, if at all. Eat whole grains. Choose vegetable oils over animal fats."
     suggest3="3. Keep physically active. Research suggests that increased physical activity, even when begun later in life, reduces overall breast-cancer risk by at least 10 percent. All it takes is moderate exercise like a 30-minute walk five days a week to get this protective effect. "
     suggest4="4. Drink little or no alcohol. Alcohol use is associated with an increased risk of breast cancer. Women should limit intake to no more than one drink per day, regardless of the type of alcohol."
+    suggest5="suggestion 5"
     link1="https://www.gnits.ac.in"
-    return suggest1,suggest2,suggest3,suggest4,suggest1,link1
+    link2="https://www.gnits.ac.in"
+    link3="https://www.gnits.ac.in"
+    link4="https://www.gnits.ac.in"
+    link5="https://www.gnits.ac.in"
+    return suggest1,suggest2,suggest3,suggest4,suggest5,link1,link2,link3,link4,link5
     
 def kidney(symptomlist):
     print(symptomlist)
@@ -197,8 +205,15 @@ def kidney(symptomlist):
         suggest3="3. You have Lower-than-normal albumin levels in your blood (hypoalbuminemia) which may indicate: Infection. Inflammation due to sepsis, surgery or another condition."
     else:
         suggest3="3. You have Higher than normal albumin levels in your blood (hyperalbuminemia) which may indicate: dehydration and severe diarrhea." 
+    suggest4="suggestion 4"
+    suggest5="suggestion 5"
     link1="https://www.gnits.ac.in"
-    return suggest1,suggest2,suggest3,suggest1,suggest2,link1
+    link2="https://www.gnits.ac.in"
+    link3="https://www.gnits.ac.in"
+    link4="https://www.gnits.ac.in"
+    link5="https://www.gnits.ac.in"
+    return suggest1,suggest2,suggest3,suggest4,suggest5,link1,link2,link3,link4,link5
+
 
 def liver(symptomlist):
     print(symptomlist)
@@ -220,8 +235,13 @@ def liver(symptomlist):
         suggest4="4. You have low protein levels, which may suggest liver disease, malnutrition, malabsorption disorders or congestive heart failure. Consume foods high in protein which include meat, fish, poultry, eggs, legumes, and soy products like tofu or tempeh."
     else:
         suggest4="4. You have high protein levels, which may indicate liver disease, chronic kidney disease, cancers such as multiple myeloma. Please consult doctor! "
+    suggest5="suggestion 5 "
     link1="https://www.gnits.ac.in"
-    return suggest1,suggest2,suggest3,suggest4,suggest1,link1
+    link2="https://www.gnits.ac.in"
+    link3="https://www.gnits.ac.in"
+    link4="https://www.gnits.ac.in"
+    link5="https://www.gnits.ac.in"
+    return suggest1,suggest2,suggest3,suggest4,suggest5,link1,link2,link3,link4,link5
 
 def ValuePredictor(to_predict_list, size):
     to_predict = np.array(to_predict_list).reshape(1,size)
@@ -252,27 +272,27 @@ def result():
             result = ValuePredictor(to_predict_list,30)
             dis="Breast Cancer"
             suggest=cancer(to_predict_list)
-            link=suggest[5]
+            link=suggest[5:9]
         elif(len(to_predict_list)==8):#Daiabtes
             result = ValuePredictor(to_predict_list,8)
             dis="Diabetes"
             suggest=diabetes(to_predict_list)
-            link=suggest[5]
+            link=suggest[5:9]
         elif(len(to_predict_list)==12):
             result = ValuePredictor(to_predict_list,12)
             dis="Kidney Disease"
             suggest=kidney(to_predict_list)
-            link=suggest[5]
+            link=suggest[5:9]
         elif(len(to_predict_list)==11):
             result = ValuePredictor(to_predict_list,11) 
             dis="Heart Disease"
             suggest=heart(to_predict_list)
-            link=suggest[5]
+            link=suggest[5:9]
         elif(len(to_predict_list)==10):
             result = ValuePredictor(to_predict_list,10)
             dis="Liver Disease"
             suggest=liver(to_predict_list)
-            link=suggest[5] 
+            link=suggest[5:9] 
     """if(int(result)==1):
         prediction=1
     else:

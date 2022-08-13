@@ -33,7 +33,7 @@ y_pred=lr.predict(X_test)
 from sklearn.metrics import accuracy_score
 acc_logreg1 = round(accuracy_score(y_pred, y_test) , 4)*100
 print("Accuracy of logistic regression : ",acc_logreg1)
-joblib.dump(lr,"modelliver")
+#joblib.dump(lr,"modelliver")
 
 
 
