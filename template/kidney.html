@@ -1,5 +1,5 @@
 {% extends 'main.html' %}
-{% block content %}
+{% block content %} <!-- 1st REC: FAIL. 252 REC: HEALTHY    --> 
 <script type = "text/javascript">
     function validate(){
         if( document.kidney.age.value == ""  || document.kidney.bp.value == "" || document.kidney.al.value == "" || document.kidney.pcc.value == "" || document.kidney.bgr.value == "" || document.kidney.bu.value == "" || document.kidney.sc.value == "" || document.kidney.hemo.value == "" || document.kidney.pcv.value == "" || document.kidney.appet.value == "" || document.kidney.htn.value == ""|| document.kidney.dm.value == "" ) {
@@ -40,7 +40,7 @@
                
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input style="border: 1px solid black;" class="form-control" type="text" id="pcc" name="pcc" placeholder="pus cell clumps">
+                            <input style="border: 1px solid black;" class="form-control" type="text" id="pcc" name="pcc" placeholder="pus cell clumps (present:1, notpresent:0)">
                         </div>
                     </div>
                 </div>
@@ -77,19 +77,19 @@
                 
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input style="border: 1px solid black;" class="form-control" type="text" id="appet" name="appet" placeholder="appetite">
+                            <input style="border: 1px solid black;" class="form-control" type="text" id="appet" name="appet" placeholder="appetite (good:1, poor:0)">
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input style="border: 1px solid black;" class="form-control" type="text" id="htn" name="htn" placeholder="hypertension">
+                            <input style="border: 1px solid black;" class="form-control" type="text" id="htn" name="htn" placeholder="hypertension (yes=1, no=0)">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input style="border: 1px solid black;" class="form-control" type="text" id="dm" name="dm" placeholder="diabetes mellitus">
+                            <input style="border: 1px solid black;" class="form-control" type="text" id="dm" name="dm" placeholder="diabetes mellitus (yes=1, no=0)">
                         </div>
                     </div>
                 </div>
