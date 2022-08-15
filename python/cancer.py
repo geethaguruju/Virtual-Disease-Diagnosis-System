@@ -16,7 +16,6 @@ cancer.rename(columns={"M":"Malignant/Benign"},inplace=True)
 y=cancer[["Malignant/Benign"]]
 X=cancer.drop(["Malignant/Benign"],axis="columns")
 print(X.shape[1])
-
 X=np.array(X)
 y=np.array(y)
 
